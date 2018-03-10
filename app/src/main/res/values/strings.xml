@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MVVMLogin</string>
+
+    <!--Login-->
+    <string name="login_register_message">Registro</string>
+    <string name="login_usename_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_sign_in">Entrar</string>
+    <string name="login_create_account">Criar uma conta</string>
 </resources>
