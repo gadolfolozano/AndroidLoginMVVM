@@ -5,7 +5,7 @@ package pe.gadolfolozano.mvvmlogin.ui.login.signin;
  */
 
 public interface SignInNavigator {
-    void singInError();
+    void navigateToCreateAccount();
 
-    void singInSucces();
+    void navigatetoMain();
 }

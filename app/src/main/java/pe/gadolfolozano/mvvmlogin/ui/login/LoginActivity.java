@@ -17,6 +17,8 @@ import pe.gadolfolozano.mvvmlogin.base.BaseActivity;
 import pe.gadolfolozano.mvvmlogin.databinding.ActivityLoginBinding;
 import pe.gadolfolozano.mvvmlogin.ui.login.createaccount.CreateAccountFragment;
 import pe.gadolfolozano.mvvmlogin.ui.login.signin.SignInFragment;
+import pe.gadolfolozano.mvvmlogin.ui.main.MainActivity;
+import pe.gadolfolozano.mvvmlogin.ui.splash.SplashActivity;
 
 /**
  * Created by adolfo on 10/03/18.
@@ -67,7 +69,9 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     @Override
     public void openMainActivity() {
-
+        Intent intent = MainActivity.newIntent(LoginActivity.this);
+        startActivity(intent);
+        finish();
     }
 
     @Override

@@ -6,6 +6,8 @@ import pe.gadolfolozano.mvvmlogin.ui.login.LoginActivity;
 import pe.gadolfolozano.mvvmlogin.ui.login.LoginActivityModule;
 import pe.gadolfolozano.mvvmlogin.ui.login.createaccount.CreateAccountFragmentProvider;
 import pe.gadolfolozano.mvvmlogin.ui.login.signin.SignInFragmentProvider;
+import pe.gadolfolozano.mvvmlogin.ui.main.MainActivity;
+import pe.gadolfolozano.mvvmlogin.ui.main.MainActivityModule;
 import pe.gadolfolozano.mvvmlogin.ui.splash.SplashActivity;
 import pe.gadolfolozano.mvvmlogin.ui.splash.SplashActivityModule;
 
@@ -22,4 +24,7 @@ public abstract class ActivityBuilder {
             SignInFragmentProvider.class,
             CreateAccountFragmentProvider.class})
     abstract LoginActivity bindLoginActivity();
+
+    @ContributesAndroidInjector(modules = MainActivityModule.class)
+    abstract MainActivity bindMainActivity();
 }
