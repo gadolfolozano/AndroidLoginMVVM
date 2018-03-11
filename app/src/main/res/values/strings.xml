@@ -9,4 +9,7 @@
     <string name="login_sign_in">Entrar</string>
     <string name="login_create_account">Criar uma conta</string>
     <string name="login_go_register">Pronto</string>
+
+
+    <string name="error_message">Ocorreu um erro inesperado</string>
 </resources>

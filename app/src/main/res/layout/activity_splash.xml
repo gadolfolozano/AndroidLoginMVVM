@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="pe.gadolfolozano.mvvmlogin.splash.SplashViewModel" />
+            type="pe.gadolfolozano.mvvmlogin.ui.splash.SplashViewModel" />
 
     </data>
 

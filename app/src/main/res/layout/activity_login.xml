@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="pe.gadolfolozano.mvvmlogin.login.LoginViewModel" />
+            type="pe.gadolfolozano.mvvmlogin.ui.login.LoginViewModel" />
 
     </data>
 
