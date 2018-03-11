@@ -4,6 +4,7 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import pe.gadolfolozano.mvvmlogin.login.LoginActivity;
 import pe.gadolfolozano.mvvmlogin.login.LoginActivityModule;
+import pe.gadolfolozano.mvvmlogin.login.signin.SignInFragmentProvider;
 import pe.gadolfolozano.mvvmlogin.splash.SplashActivity;
 import pe.gadolfolozano.mvvmlogin.splash.SplashActivityModule;
 
@@ -15,6 +16,8 @@ public abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = SplashActivityModule.class)
     abstract SplashActivity bindSplashActivity();
 
-    @ContributesAndroidInjector(modules = LoginActivityModule.class)
+    @ContributesAndroidInjector(modules = {
+            LoginActivityModule.class,
+            SignInFragmentProvider.class})
     abstract LoginActivity bindLoginActivity();
 }
