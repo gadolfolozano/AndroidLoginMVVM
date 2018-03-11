@@ -10,4 +10,8 @@ public class SignInViewModel extends BaseViewModel<SignInNavigator> {
     public SignInViewModel() {
         super();
     }
+
+    public void singIn(String username, String password) {
+
+    }
 }

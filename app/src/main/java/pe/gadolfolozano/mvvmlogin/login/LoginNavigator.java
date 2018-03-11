@@ -6,4 +6,8 @@ package pe.gadolfolozano.mvvmlogin.login;
 
 public interface LoginNavigator {
     void openMainActivity();
+
+    void goToSignIn();
+
+    void goToCreateAccount();
 }

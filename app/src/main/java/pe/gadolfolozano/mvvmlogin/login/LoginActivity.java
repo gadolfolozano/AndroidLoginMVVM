@@ -15,6 +15,7 @@ import pe.gadolfolozano.mvvmlogin.BR;
 import pe.gadolfolozano.mvvmlogin.R;
 import pe.gadolfolozano.mvvmlogin.base.BaseActivity;
 import pe.gadolfolozano.mvvmlogin.databinding.ActivityLoginBinding;
+import pe.gadolfolozano.mvvmlogin.login.createaccount.CreateAccountFragment;
 import pe.gadolfolozano.mvvmlogin.login.signin.SignInFragment;
 
 /**
@@ -57,8 +58,11 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLoginViewModel.setNavigator(this);
+        setUp();
+    }
 
-        navigateToSignIn();
+    private void setUp() {
+        goToSignIn();
     }
 
     @Override
@@ -66,10 +70,30 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     }
 
-    public void navigateToSignIn() {
+    @Override
+    public void goToSignIn() {
         SignInFragment signInFragment = SignInFragment.newInstance();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, signInFragment)
                 .commitAllowingStateLoss();
+    }
+
+    @Override
+    public void goToCreateAccount() {
+        CreateAccountFragment createAccountFragment = CreateAccountFragment.newInstance();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, createAccountFragment)
+                .commitAllowingStateLoss();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);
+        if (fragment != null && fragment instanceof CreateAccountFragment) {
+            goToSignIn();
+            return;
+        }
+
+        super.onBackPressed();
     }
 }

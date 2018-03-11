@@ -98,6 +98,18 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
         }
     }
 
+    public void hideLoading() {
+        if (mActivity != null) {
+            mActivity.hideLoading();
+        }
+    }
+
+    public void showLoading() {
+        if (mActivity != null) {
+            mActivity.showLoading();
+        }
+    }
+
     private void performDependencyInjection() {
         AndroidSupportInjection.inject(this);
     }
