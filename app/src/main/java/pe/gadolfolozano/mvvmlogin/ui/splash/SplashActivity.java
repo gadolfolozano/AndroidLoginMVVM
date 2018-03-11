@@ -11,6 +11,7 @@ import pe.gadolfolozano.mvvmlogin.R;
 import pe.gadolfolozano.mvvmlogin.base.BaseActivity;
 import pe.gadolfolozano.mvvmlogin.databinding.ActivitySplashBinding;
 import pe.gadolfolozano.mvvmlogin.ui.login.LoginActivity;
+import pe.gadolfolozano.mvvmlogin.ui.main.MainActivity;
 
 /**
  * Created by adolfo on 9/03/18.
@@ -53,6 +54,8 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
 
     @Override
     public void openMainActivity() {
-
+        Intent intent = MainActivity.newIntent(SplashActivity.this);
+        startActivity(intent);
+        finish();
     }
 }

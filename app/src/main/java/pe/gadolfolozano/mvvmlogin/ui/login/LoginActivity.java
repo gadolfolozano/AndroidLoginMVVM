@@ -18,7 +18,6 @@ import pe.gadolfolozano.mvvmlogin.databinding.ActivityLoginBinding;
 import pe.gadolfolozano.mvvmlogin.ui.login.createaccount.CreateAccountFragment;
 import pe.gadolfolozano.mvvmlogin.ui.login.signin.SignInFragment;
 import pe.gadolfolozano.mvvmlogin.ui.main.MainActivity;
-import pe.gadolfolozano.mvvmlogin.ui.splash.SplashActivity;
 
 /**
  * Created by adolfo on 10/03/18.

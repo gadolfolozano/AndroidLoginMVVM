@@ -2,6 +2,7 @@ package pe.gadolfolozano.mvvmlogin.data.model.api.service;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
+import pe.gadolfolozano.mvvmlogin.util.Constants;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -11,7 +12,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  */
 
 public class ApiClient {
-    private static final String BASE_URL = "http://104.131.189.211:8085/";
 
     private ApiClient() {
         throw new IllegalStateException("Utility class");
@@ -31,7 +31,7 @@ public class ApiClient {
 
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .client(client)

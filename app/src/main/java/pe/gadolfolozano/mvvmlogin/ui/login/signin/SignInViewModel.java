@@ -19,4 +19,9 @@ public class SignInViewModel extends BaseViewModel<SignInNavigator> {
     public LiveData<BaseModelLiveData<SignInSuccesResponse>> singIn(String username, String password) {
         return getDataManager().singIn(username, password);
     }
+
+    public void saveToken(String token) {
+        getDataManager().saveUserToken(token);
+        getNavigator().navigatetoMain();
+    }
 }

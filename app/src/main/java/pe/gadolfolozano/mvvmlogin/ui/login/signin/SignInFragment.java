@@ -92,7 +92,7 @@ public class SignInFragment extends BaseFragment<FragmentSignInBinding, SignInVi
             public void onChanged(@Nullable BaseModelLiveData<SignInSuccesResponse> liveData) {
                 hideLoading();
                 if(liveData.isSuccesfull()){
-                    navigatetoMain();
+                    mSignInViewModel.saveToken(liveData.getData().getSession().getToken());
                 } else if(liveData.getErrorMessage()!=null){
                     Toast.makeText(getContext(), liveData.getErrorMessage(), Toast.LENGTH_LONG).show();
                 } else {

@@ -6,6 +6,7 @@ import android.content.Context;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import pe.gadolfolozano.mvvmlogin.data.local.preferences.PreferenceHelper;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.CreateAccountSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.SignInSuccesResponse;
 import pe.gadolfolozano.mvvmlogin.data.remote.ApiHelper;
@@ -18,12 +19,14 @@ import pe.gadolfolozano.mvvmlogin.ui.model.BaseModelLiveData;
 public class DataManagerImplements implements DataManager {
 
     private ApiHelper mApiHelper;
+    private PreferenceHelper mPreferenceHelper;
     private Context mContext;
 
     @Inject
-    public DataManagerImplements(Context context, ApiHelper apiHelper) {
+    public DataManagerImplements(Context context, ApiHelper apiHelper, PreferenceHelper preferenceHelper) {
         this.mContext = context;
         this.mApiHelper = apiHelper;
+        this.mPreferenceHelper = preferenceHelper;
     }
 
     @Override
@@ -37,4 +40,13 @@ public class DataManagerImplements implements DataManager {
     }
 
 
+    @Override
+    public String getUserToken() {
+        return mPreferenceHelper.getUserToken();
+    }
+
+    @Override
+    public void saveUserToken(String token) {
+        mPreferenceHelper.saveUserToken(token);
+    }
 }
