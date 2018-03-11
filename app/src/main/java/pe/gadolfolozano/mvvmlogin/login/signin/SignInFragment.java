@@ -79,9 +79,10 @@ public class SignInFragment extends BaseFragment<FragmentSignInBinding, SignInVi
     }
 
     private void onSingInClicked() {
+        showLoading();
+        hideKeyboard();
         String username = mBinding.edtUserName.getText().toString();
         String password = mBinding.edtPassword.getText().toString();
-        //showLoading();
         mSignInViewModel.singIn(username, password);
     }
 
@@ -89,5 +90,15 @@ public class SignInFragment extends BaseFragment<FragmentSignInBinding, SignInVi
         if (getActivity() instanceof LoginActivity) {
             ((LoginActivity) getActivity()).goToCreateAccount();
         }
+    }
+
+    @Override
+    public void singInError() {
+        hideLoading();
+    }
+
+    @Override
+    public void singInSucces() {
+        hideLoading();
     }
 }
