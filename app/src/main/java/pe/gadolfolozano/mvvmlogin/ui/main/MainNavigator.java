@@ -5,5 +5,5 @@ package pe.gadolfolozano.mvvmlogin.ui.main;
  */
 
 public interface MainNavigator {
-
+    void openLoginActivity();
 }

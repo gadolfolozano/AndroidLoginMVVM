@@ -11,4 +11,13 @@ public class MainViewModel extends BaseViewModel<MainNavigator> {
     public MainViewModel(DataManager dataManager) {
         super(dataManager);
     }
+
+    public void loadUserInfo() {
+
+    }
+
+    public void signOut() {
+        getDataManager().saveUserToken(null);
+        getNavigator().openLoginActivity();
+    }
 }

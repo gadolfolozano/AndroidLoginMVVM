@@ -12,11 +12,6 @@ public class SplashViewModel extends BaseViewModel<SplashNavigator> {
         super(dataManager);
     }
 
-    private void decideNextActivity() {
-        getNavigator().openLoginActivity();
-    }
-
-
     public void startApp() {
         String token = getDataManager().getUserToken();
 

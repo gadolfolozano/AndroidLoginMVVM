@@ -10,6 +10,13 @@
     <string name="login_create_account">Criar uma conta</string>
     <string name="login_go_register">Pronto</string>
 
+    <!--Main-->
+    <string name="main_title">Informaçao do Usuario</string>
+    <string name="main_first_name_hint">Nome</string>
+    <string name="main_last_name_hint">Sobrenome</string>
+    <string name="main_password_hint">Senha</string>
 
     <string name="error_message">Ocorreu um erro inesperado</string>
+
+    <string name="menu_action_logout">Sair</string>
 </resources>
