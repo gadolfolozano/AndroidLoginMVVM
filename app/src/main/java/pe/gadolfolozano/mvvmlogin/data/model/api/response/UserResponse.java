@@ -11,9 +11,9 @@ import java.io.Serializable;
 public class UserResponse implements Serializable {
     @SerializedName("username")
     private String username;
-    @SerializedName("firstname")
+    @SerializedName("firstName")
     private String firstName;
-    @SerializedName("lastname")
+    @SerializedName("lastName")
     private String lastName;
 
     public String getUsername() {

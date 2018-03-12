@@ -10,6 +10,7 @@ import pe.gadolfolozano.mvvmlogin.data.local.preferences.PreferenceHelper;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.CreateAccountSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.GetUserDetailsSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.SignInSuccesResponse;
+import pe.gadolfolozano.mvvmlogin.data.model.api.response.UpdateUserDetailsSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.remote.ApiHelper;
 import pe.gadolfolozano.mvvmlogin.ui.model.BaseModelLiveData;
 
@@ -43,6 +44,11 @@ public class DataManagerImplements implements DataManager {
     @Override
     public LiveData<BaseModelLiveData<GetUserDetailsSuccessResponse>> getUserDetails(String token) {
         return mApiHelper.getUserDetails(token);
+    }
+
+    @Override
+    public LiveData<BaseModelLiveData<UpdateUserDetailsSuccessResponse>> updateUserDetails(String token, String firstName, String lastName, String password) {
+        return mApiHelper.updateUserDetails(token, firstName, lastName, password);
     }
 
 

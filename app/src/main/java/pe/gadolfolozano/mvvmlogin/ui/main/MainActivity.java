@@ -16,6 +16,7 @@ import pe.gadolfolozano.mvvmlogin.BR;
 import pe.gadolfolozano.mvvmlogin.R;
 import pe.gadolfolozano.mvvmlogin.base.BaseActivity;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.GetUserDetailsSuccessResponse;
+import pe.gadolfolozano.mvvmlogin.data.model.api.response.UpdateUserDetailsSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.databinding.ActivityMainBinding;
 import pe.gadolfolozano.mvvmlogin.ui.login.LoginActivity;
 import pe.gadolfolozano.mvvmlogin.ui.model.BaseModelLiveData;
@@ -71,6 +72,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                     mBinding.edtFirstName.append(liveData.getData().getUser().getFirstName());
                     mBinding.edtLastName.setText(Constants.EMPTY);
                     mBinding.edtLastName.setText(liveData.getData().getUser().getLastName());
+                    mBinding.edtPassword.setText(Constants.EMPTY);
                 } else if(liveData.getErrorMessage()!=null){
                     Toast.makeText(MainActivity.this, liveData.getErrorMessage(), Toast.LENGTH_LONG).show();
                 } else {
@@ -92,7 +94,23 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         String firstName = mBinding.edtFirstName.getText().toString();
         String lastName = mBinding.edtLastName.getText().toString();
         String password = mBinding.edtPassword.getText().toString();
-        mMainViewModel.updateUserInfo();
+        if(password.equals(Constants.EMPTY)){
+            //password = null;
+        }
+        mMainViewModel.updateUserInfo(firstName, lastName, password).observe(this, new Observer<BaseModelLiveData<UpdateUserDetailsSuccessResponse>>() {
+            @Override
+            public void onChanged(@Nullable BaseModelLiveData<UpdateUserDetailsSuccessResponse> liveData) {
+                hideLoading();
+                if(liveData.isSuccesfull()){
+                    mBinding.edtPassword.setText(Constants.EMPTY);
+                    Toast.makeText(MainActivity.this, liveData.getData().getMessage(), Toast.LENGTH_LONG).show();
+                } else if(liveData.getErrorMessage()!=null){
+                    Toast.makeText(MainActivity.this, liveData.getErrorMessage(), Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity.this, R.string.error_message, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     @Override
