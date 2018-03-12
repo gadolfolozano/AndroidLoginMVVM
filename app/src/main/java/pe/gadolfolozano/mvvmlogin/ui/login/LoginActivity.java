@@ -13,7 +13,7 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 import pe.gadolfolozano.mvvmlogin.BR;
 import pe.gadolfolozano.mvvmlogin.R;
-import pe.gadolfolozano.mvvmlogin.base.BaseActivity;
+import pe.gadolfolozano.mvvmlogin.ui.base.BaseActivity;
 import pe.gadolfolozano.mvvmlogin.databinding.ActivityLoginBinding;
 import pe.gadolfolozano.mvvmlogin.ui.login.createaccount.CreateAccountFragment;
 import pe.gadolfolozano.mvvmlogin.ui.login.signin.SignInFragment;

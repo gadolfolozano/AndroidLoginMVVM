@@ -1,4 +1,4 @@
-package pe.gadolfolozano.mvvmlogin.base;
+package pe.gadolfolozano.mvvmlogin.ui.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

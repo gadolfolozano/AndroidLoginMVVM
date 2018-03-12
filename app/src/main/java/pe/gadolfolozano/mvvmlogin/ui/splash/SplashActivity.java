@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 import pe.gadolfolozano.mvvmlogin.BR;
 import pe.gadolfolozano.mvvmlogin.R;
-import pe.gadolfolozano.mvvmlogin.base.BaseActivity;
+import pe.gadolfolozano.mvvmlogin.ui.base.BaseActivity;
 import pe.gadolfolozano.mvvmlogin.databinding.ActivitySplashBinding;
 import pe.gadolfolozano.mvvmlogin.ui.login.LoginActivity;
 import pe.gadolfolozano.mvvmlogin.ui.main.MainActivity;

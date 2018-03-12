@@ -1,4 +1,4 @@
-package pe.gadolfolozano.mvvmlogin.base;
+package pe.gadolfolozano.mvvmlogin.ui.base;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;

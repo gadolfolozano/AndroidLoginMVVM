@@ -2,7 +2,7 @@ package pe.gadolfolozano.mvvmlogin.ui.login.createaccount;
 
 import android.arch.lifecycle.LiveData;
 
-import pe.gadolfolozano.mvvmlogin.base.BaseViewModel;
+import pe.gadolfolozano.mvvmlogin.ui.base.BaseViewModel;
 import pe.gadolfolozano.mvvmlogin.data.DataManager;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.CreateAccountSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.SignInSuccesResponse;

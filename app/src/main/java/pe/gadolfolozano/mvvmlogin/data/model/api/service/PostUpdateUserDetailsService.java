@@ -12,10 +12,6 @@ public class PostUpdateUserDetailsService extends ServiceBase<UpdateUserDetailsS
 
     UpdateUserDetailsRequest body;
 
-    public PostUpdateUserDetailsService() {
-
-    }
-
     public void setBody(UpdateUserDetailsRequest body) {
         this.body = body;
     }

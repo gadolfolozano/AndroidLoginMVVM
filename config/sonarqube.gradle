@@ -1,0 +1,13 @@
+apply plugin: 'org.sonarqube'
+
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.login", "9d9e70d01289151f09fe379092765b750b11447d"
+        property "sonar.sources", "src/main/java"
+        property "sonar.binaries", "build/intermediates/classes/debug"
+        property "sonar.java.binaries", "build/intermediates/classes/debug"
+        property "sonar.java.test.binaries", "build/intermediates/classes/debug"
+        property "sonar.android.lint.report", "build/outputs/lint-results.xml"
+    }
+}

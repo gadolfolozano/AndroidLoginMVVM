@@ -12,10 +12,6 @@ public class PostGetUserDetailsService extends ServiceBase<GetUserDetailsSuccess
 
     GetUserDetailsRequest body;
 
-    public PostGetUserDetailsService() {
-
-    }
-
     public void setBody(GetUserDetailsRequest body) {
         this.body = body;
     }

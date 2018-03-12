@@ -16,7 +16,7 @@ import javax.inject.Inject;
 
 import pe.gadolfolozano.mvvmlogin.BR;
 import pe.gadolfolozano.mvvmlogin.R;
-import pe.gadolfolozano.mvvmlogin.base.BaseFragment;
+import pe.gadolfolozano.mvvmlogin.ui.base.BaseFragment;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.CreateAccountSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.SignInSuccesResponse;
 import pe.gadolfolozano.mvvmlogin.databinding.FragmentCreateAccountBinding;

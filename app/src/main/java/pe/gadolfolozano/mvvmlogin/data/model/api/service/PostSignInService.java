@@ -12,10 +12,6 @@ public class PostSignInService extends ServiceBase<SignInSuccesResponse> {
 
     SignInRequest body;
 
-    public PostSignInService() {
-
-    }
-
     public void setBody(SignInRequest body) {
         this.body = body;
     }

@@ -14,7 +14,7 @@ import javax.inject.Inject;
 
 import pe.gadolfolozano.mvvmlogin.BR;
 import pe.gadolfolozano.mvvmlogin.R;
-import pe.gadolfolozano.mvvmlogin.base.BaseActivity;
+import pe.gadolfolozano.mvvmlogin.ui.base.BaseActivity;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.GetUserDetailsSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.UpdateUserDetailsSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.databinding.ActivityMainBinding;

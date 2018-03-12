@@ -12,10 +12,6 @@ public class PostCreateAccountService extends ServiceBase<CreateAccountSuccessRe
 
     CreateAccountRequest body;
 
-    public PostCreateAccountService() {
-
-    }
-
     public void setBody(CreateAccountRequest body) {
         this.body = body;
     }

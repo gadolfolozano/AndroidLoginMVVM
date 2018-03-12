@@ -1,6 +1,6 @@
 package pe.gadolfolozano.mvvmlogin.ui.splash;
 
-import pe.gadolfolozano.mvvmlogin.base.BaseViewModel;
+import pe.gadolfolozano.mvvmlogin.ui.base.BaseViewModel;
 import pe.gadolfolozano.mvvmlogin.data.DataManager;
 
 /**
