@@ -15,7 +15,7 @@
     <string name="main_first_name_hint">Nome</string>
     <string name="main_last_name_hint">Sobrenome</string>
     <string name="main_password_hint">Senha</string>
-    <string name="main_save_changues">Guardar cambios</string>
+    <string name="main_save_changues">Salvar mudanças</string>
 
     <string name="error_message">Ocorreu um erro inesperado</string>
 
