@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 
 import pe.gadolfolozano.mvvmlogin.data.local.preferences.PreferenceHelper;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.CreateAccountSuccessResponse;
+import pe.gadolfolozano.mvvmlogin.data.model.api.response.GetUserDetailsSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.SignInSuccesResponse;
 import pe.gadolfolozano.mvvmlogin.data.remote.ApiHelper;
 import pe.gadolfolozano.mvvmlogin.ui.model.BaseModelLiveData;
@@ -37,6 +38,11 @@ public class DataManagerImplements implements DataManager {
     @Override
     public LiveData<BaseModelLiveData<CreateAccountSuccessResponse>> createAccount(String username, String password) {
         return mApiHelper.createAccount(username, password);
+    }
+
+    @Override
+    public LiveData<BaseModelLiveData<GetUserDetailsSuccessResponse>> getUserDetails(String token) {
+        return mApiHelper.getUserDetails(token);
     }
 
 

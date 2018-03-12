@@ -1,8 +1,10 @@
 package pe.gadolfolozano.mvvmlogin.data.model.api.service;
 
 import pe.gadolfolozano.mvvmlogin.data.model.api.request.CreateAccountRequest;
+import pe.gadolfolozano.mvvmlogin.data.model.api.request.GetUserDetailsRequest;
 import pe.gadolfolozano.mvvmlogin.data.model.api.request.SignInRequest;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.CreateAccountSuccessResponse;
+import pe.gadolfolozano.mvvmlogin.data.model.api.response.GetUserDetailsSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.SignInSuccesResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,4 +20,7 @@ public interface ApiInterface {
 
     @POST("user/create")
     Call<CreateAccountSuccessResponse> postCreateAccount(@Body CreateAccountRequest signInRequest);
+
+    @POST("user/getDetails")
+    Call<GetUserDetailsSuccessResponse> postGetUserDetails(@Body GetUserDetailsRequest signInRequest);
 }

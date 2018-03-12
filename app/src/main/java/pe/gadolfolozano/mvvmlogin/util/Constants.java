@@ -12,4 +12,7 @@ public class Constants {
 
     public static final String BASE_URL = "http://104.131.189.211:8085/";
     public static final String PREF_NAME = "app_pref";
+
+
+    public static final String EMPTY = "";
 }

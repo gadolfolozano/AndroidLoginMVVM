@@ -7,11 +7,14 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import pe.gadolfolozano.mvvmlogin.data.model.api.request.CreateAccountRequest;
+import pe.gadolfolozano.mvvmlogin.data.model.api.request.GetUserDetailsRequest;
 import pe.gadolfolozano.mvvmlogin.data.model.api.request.SignInRequest;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.CreateAccountSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.ErrorMessage;
+import pe.gadolfolozano.mvvmlogin.data.model.api.response.GetUserDetailsSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.response.SignInSuccesResponse;
 import pe.gadolfolozano.mvvmlogin.data.model.api.service.PostCreateAccountService;
+import pe.gadolfolozano.mvvmlogin.data.model.api.service.PostGetUserDetailsService;
 import pe.gadolfolozano.mvvmlogin.data.model.api.service.PostSignInService;
 import pe.gadolfolozano.mvvmlogin.data.model.api.service.ServiceListener;
 import pe.gadolfolozano.mvvmlogin.ui.model.BaseModelLiveData;
@@ -77,6 +80,41 @@ public class ApiHelperImplements implements ApiHelper {
         service.setServiceListener(new ServiceListener<CreateAccountSuccessResponse>() {
             @Override
             public void onSucess(CreateAccountSuccessResponse response) {
+                liveDataObj.setSuccesfull(true);
+                liveDataObj.setData(response);
+                data.setValue(liveDataObj);
+            }
+
+            @Override
+            public void onErrorHandled(ErrorMessage errorHandle) {
+                liveDataObj.setSuccesfull(false);
+                liveDataObj.setErrorMessage(errorHandle.getMessage());
+                data.setValue(liveDataObj);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                liveDataObj.setSuccesfull(false);
+                data.setValue(liveDataObj);
+            }
+        });
+        service.execute();
+        return data;
+    }
+
+    @Override
+    public LiveData<BaseModelLiveData<GetUserDetailsSuccessResponse>> getUserDetails(String token) {
+        final MutableLiveData<BaseModelLiveData<GetUserDetailsSuccessResponse>> data = new MutableLiveData<>();
+
+        final BaseModelLiveData<GetUserDetailsSuccessResponse> liveDataObj = new BaseModelLiveData<>();
+
+        GetUserDetailsRequest request = new GetUserDetailsRequest();
+        request.setToken(token);
+        PostGetUserDetailsService service = new PostGetUserDetailsService();
+        service.setBody(request);
+        service.setServiceListener(new ServiceListener<GetUserDetailsSuccessResponse>() {
+            @Override
+            public void onSucess(GetUserDetailsSuccessResponse response) {
                 liveDataObj.setSuccesfull(true);
                 liveDataObj.setData(response);
                 data.setValue(liveDataObj);

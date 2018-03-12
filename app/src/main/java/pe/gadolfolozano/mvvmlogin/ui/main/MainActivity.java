@@ -1,19 +1,25 @@
 package pe.gadolfolozano.mvvmlogin.ui.main;
 
+import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
 import pe.gadolfolozano.mvvmlogin.BR;
 import pe.gadolfolozano.mvvmlogin.R;
 import pe.gadolfolozano.mvvmlogin.base.BaseActivity;
+import pe.gadolfolozano.mvvmlogin.data.model.api.response.GetUserDetailsSuccessResponse;
 import pe.gadolfolozano.mvvmlogin.databinding.ActivityMainBinding;
 import pe.gadolfolozano.mvvmlogin.ui.login.LoginActivity;
+import pe.gadolfolozano.mvvmlogin.ui.model.BaseModelLiveData;
+import pe.gadolfolozano.mvvmlogin.util.Constants;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> implements MainNavigator {
 
@@ -55,7 +61,38 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
             getSupportActionBar().setTitle(R.string.main_title);
         }
 
-        mMainViewModel.loadUserInfo();
+        showLoading();
+        mMainViewModel.loadUserInfo().observe(this, new Observer<BaseModelLiveData<GetUserDetailsSuccessResponse>>() {
+            @Override
+            public void onChanged(@Nullable BaseModelLiveData<GetUserDetailsSuccessResponse> liveData) {
+                hideLoading();
+                if(liveData.isSuccesfull()){
+                    mBinding.edtFirstName.setText(Constants.EMPTY);
+                    mBinding.edtFirstName.append(liveData.getData().getUser().getFirstName());
+                    mBinding.edtLastName.setText(Constants.EMPTY);
+                    mBinding.edtLastName.setText(liveData.getData().getUser().getLastName());
+                } else if(liveData.getErrorMessage()!=null){
+                    Toast.makeText(MainActivity.this, liveData.getErrorMessage(), Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity.this, R.string.error_message, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        mBinding.btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBtnSaveClicked();
+            }
+        });
+    }
+
+    private void onBtnSaveClicked(){
+        showLoading();
+        String firstName = mBinding.edtFirstName.getText().toString();
+        String lastName = mBinding.edtLastName.getText().toString();
+        String password = mBinding.edtPassword.getText().toString();
+        mMainViewModel.updateUserInfo();
     }
 
     @Override
