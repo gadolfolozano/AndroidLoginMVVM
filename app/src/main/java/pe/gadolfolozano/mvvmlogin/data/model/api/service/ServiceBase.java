@@ -37,18 +37,19 @@ public abstract class ServiceBase<T> {
                 if (serviceListener != null) {
                     if (response.isSuccessful() && response.body() != null) {
                         serviceListener.onSucess(response.body());
-                    } else if(response.errorBody() != null){
+                    } else if (response.errorBody() != null) {
 
                         ErrorMessage errorMessage = null;
                         try {
                             errorMessage = new Gson().fromJson(response.errorBody().charStream(), ErrorMessage.class);
-                        }catch (Exception e){
-                            Log.d("singIn", "Exception " + e );
+                            errorMessage.setCode(response.code());
+                        } catch (Exception e) {
+                            Log.d("singIn", "Exception " + e);
                             //Do nothing
                         }
-                        if(errorMessage == null){
+                        if (errorMessage == null) {
                             serviceListener.onError(new Exception());
-                        }else {
+                        } else {
                             serviceListener.onErrorHandled(errorMessage);
                         }
                     } else {

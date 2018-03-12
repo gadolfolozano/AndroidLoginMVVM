@@ -75,6 +75,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                     mBinding.edtPassword.setText(Constants.EMPTY);
                 } else if(liveData.getErrorMessage()!=null){
                     Toast.makeText(MainActivity.this, liveData.getErrorMessage(), Toast.LENGTH_LONG).show();
+                    if(liveData.getStatusCode() == 500){
+                        openLoginActivity();
+                    }
                 } else {
                     Toast.makeText(MainActivity.this, R.string.error_message, Toast.LENGTH_LONG).show();
                 }
@@ -106,6 +109,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                     Toast.makeText(MainActivity.this, liveData.getData().getMessage(), Toast.LENGTH_LONG).show();
                 } else if(liveData.getErrorMessage()!=null){
                     Toast.makeText(MainActivity.this, liveData.getErrorMessage(), Toast.LENGTH_LONG).show();
+                    if(liveData.getStatusCode() == 500){
+                        openLoginActivity();
+                    }
                 } else {
                     Toast.makeText(MainActivity.this, R.string.error_message, Toast.LENGTH_LONG).show();
                 }

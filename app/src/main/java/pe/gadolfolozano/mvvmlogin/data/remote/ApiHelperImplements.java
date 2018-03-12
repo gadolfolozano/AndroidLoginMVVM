@@ -21,7 +21,6 @@ import pe.gadolfolozano.mvvmlogin.data.model.api.service.PostSignInService;
 import pe.gadolfolozano.mvvmlogin.data.model.api.service.PostUpdateUserDetailsService;
 import pe.gadolfolozano.mvvmlogin.data.model.api.service.ServiceListener;
 import pe.gadolfolozano.mvvmlogin.ui.model.BaseModelLiveData;
-import pe.gadolfolozano.mvvmlogin.util.Constants;
 
 /**
  * Created by adolfo on 11/03/18.
@@ -57,6 +56,7 @@ public class ApiHelperImplements implements ApiHelper {
             public void onErrorHandled(ErrorMessage errorHandle) {
                 liveDataObj.setSuccesfull(false);
                 liveDataObj.setErrorMessage(errorHandle.getMessage());
+                liveDataObj.setStatusCode(errorHandle.getCode());
                 data.setValue(liveDataObj);
             }
 
@@ -93,6 +93,7 @@ public class ApiHelperImplements implements ApiHelper {
             public void onErrorHandled(ErrorMessage errorHandle) {
                 liveDataObj.setSuccesfull(false);
                 liveDataObj.setErrorMessage(errorHandle.getMessage());
+                liveDataObj.setStatusCode(errorHandle.getCode());
                 data.setValue(liveDataObj);
             }
 
@@ -128,6 +129,7 @@ public class ApiHelperImplements implements ApiHelper {
             public void onErrorHandled(ErrorMessage errorHandle) {
                 liveDataObj.setSuccesfull(false);
                 liveDataObj.setErrorMessage(errorHandle.getMessage());
+                liveDataObj.setStatusCode(errorHandle.getCode());
                 data.setValue(liveDataObj);
             }
 
@@ -166,6 +168,7 @@ public class ApiHelperImplements implements ApiHelper {
             public void onErrorHandled(ErrorMessage errorHandle) {
                 liveDataObj.setSuccesfull(false);
                 liveDataObj.setErrorMessage(errorHandle.getMessage());
+                liveDataObj.setStatusCode(errorHandle.getCode());
                 data.setValue(liveDataObj);
             }
 

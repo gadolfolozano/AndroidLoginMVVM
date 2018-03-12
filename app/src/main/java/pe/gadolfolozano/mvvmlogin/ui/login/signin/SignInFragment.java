@@ -6,7 +6,10 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import javax.inject.Inject;
@@ -78,6 +81,17 @@ public class SignInFragment extends BaseFragment<FragmentSignInBinding, SignInVi
             @Override
             public void onClick(View view) {
                 onCreateAccountClicked();
+            }
+        });
+        mBinding.edtPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                hideKeyboard();
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    onSingInClicked();
+                }
+                textView.clearFocus();
+                return false;
             }
         });
     }

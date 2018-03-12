@@ -5,4 +5,5 @@ package pe.gadolfolozano.mvvmlogin.ui.login.createaccount;
  */
 
 public interface CreateAccountNavigator {
+    void navigatetoMain();
 }

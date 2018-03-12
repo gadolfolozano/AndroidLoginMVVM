@@ -7,6 +7,7 @@ package pe.gadolfolozano.mvvmlogin.ui.model;
 public class BaseModelLiveData<T> {
     private boolean succesfull;
     private String errorMessage;
+    private int statusCode;
     private T data;
 
     public boolean isSuccesfull() {
@@ -31,5 +32,13 @@ public class BaseModelLiveData<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
     }
 }
