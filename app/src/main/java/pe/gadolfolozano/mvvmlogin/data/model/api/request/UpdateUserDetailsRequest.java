@@ -12,10 +12,10 @@ public class UpdateUserDetailsRequest implements Serializable {
     @SerializedName("token")
     private String token;
 
-    @SerializedName("firstname")
+    @SerializedName("firstName")
     private String firstName;
 
-    @SerializedName("lastname")
+    @SerializedName("lastName")
     private String lastName;
 
     @SerializedName("password")

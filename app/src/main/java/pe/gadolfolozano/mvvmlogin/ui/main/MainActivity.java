@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         String lastName = mBinding.edtLastName.getText().toString();
         String password = mBinding.edtPassword.getText().toString();
         if(password.equals(Constants.EMPTY)){
-            //password = null;
+            password = null;
         }
         mMainViewModel.updateUserInfo(firstName, lastName, password).observe(this, new Observer<BaseModelLiveData<UpdateUserDetailsSuccessResponse>>() {
             @Override
