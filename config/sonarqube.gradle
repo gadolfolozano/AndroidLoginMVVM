@@ -1,5 +1,33 @@
 apply plugin: 'org.sonarqube'
 
+task createTestReports(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
+    group = "Reporting"
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = ['**/R.class',
+                      '**/R$*.class',
+                      '**/BuildConfig.*',
+                      '**/*$ViewInjector*.*',
+                      '**/*$ViewBinder*.*',
+                      '**/*$MembersInjector*.*',
+                      '**/Manifest*.*',
+                      '**/*Test*.*',
+                      'android/**/*.*']
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/dev/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    sourceDirectories = files([mainSrc])
+    classDirectories = files([debugTree])
+
+    executionData = files("${project.buildDir}/jacoco/testDevDebugUnitTest.exec")
+}
+
+tasks.sonarqube.dependsOn createTestReports
+
 sonarqube {
     properties {
         property "sonar.host.url", "http://localhost:9000"
@@ -9,5 +37,6 @@ sonarqube {
         property "sonar.java.binaries", "build/intermediates/classes/debug"
         property "sonar.java.test.binaries", "build/intermediates/classes/debug"
         property "sonar.android.lint.report", "build/outputs/lint-results.xml"
+        property "sonar.jacoco.reportPaths","build/jacoco/testDebugUnitTest.exec"
     }
 }
